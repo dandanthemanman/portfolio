@@ -14,6 +14,7 @@
 html {
   font-size: 62.5%;
   scroll-snap-type: y mandatory;
+  scroll-padding-top: 10.6rem;
 }
 .site {
   background-image: url("./public/madrid_sunset.jpg");

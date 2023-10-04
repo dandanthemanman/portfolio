@@ -19,7 +19,7 @@
         scroll-snap-align: start;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        height: 120vh;
+        height: 50vh;
         .about-container {
             
             padding: 1.4rem;
