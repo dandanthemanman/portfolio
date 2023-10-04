@@ -34,7 +34,8 @@ const handleEmailClick = () => {
 </script>
 
 <style lang="scss" scoped>
-.nav-bar-container{
+.nav-bar-container{ 
+    font-family: $dot-gothic;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,28 +43,39 @@ const handleEmailClick = () => {
             text-decoration: none;  
             color: unset;
         }
+    
     .name-container {
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
+       
         .big-name{
             color: white;
             font-size: 4.5rem;
             margin: 2rem;
+            &:hover {
+            color: greenyellow;
+        }
         }
     }
     .items-container{
-        display: flex;
+        display: flex; 
+        
         .nav-bar-item {
             display: flex;
             justify-content: center;
             align-items: center;
-            border: 1px solid red;
+            // border: 1px solid red;
             padding: 2rem;
             text-align: center;
             font-size: 1.6rem;
             overflow: hidden;
+            &:hover {
+                color: yellow;
+            }
+
+           
             &.email-link {
                 display: flex;
                 flex-direction: column;
@@ -72,7 +84,6 @@ const handleEmailClick = () => {
                 }
                 &:hover {
                     span {
-                        color: yellow;
                         transform: translateY(calc(-200% - 0.5rem));  
                         transition: transform 0.3s cubic-bezier(0.45, 0, 0.55, 1);
                     }
