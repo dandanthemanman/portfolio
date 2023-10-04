@@ -13,12 +13,14 @@
 <style lang="scss">
 html {
   font-size: 62.5%;
+  scroll-snap-type: y mandatory;
 }
 .site {
   background-image: url("./public/madrid_sunset.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-attachment: fixed;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
