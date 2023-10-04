@@ -1,10 +1,13 @@
 <template>
-    <div id="intro">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis nobis quisquam culpa ipsum! Adipisci hic doloribus nisi libero laudantium ducimus explicabo, deserunt exercitationem beatae, aliquid nulla optio! Expedita, necessitatibus quaerat.</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sunt corrupti eius fugiat magnam excepturi dignissimos aliquam id provident asperiores amet ab optio laborum accusamus, rerum assumenda corporis modi perspiciatis voluptatibus.</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore illo dolores reprehenderit asperiores tempore voluptatum, nisi saepe commodi? Voluptates explicabo possimus harum commodi temporibus vel nostrum amet corrupti enim architecto?</p>
-        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae, soluta perferendis eligendi repudiandae ea optio possimus, nihil ab voluptatem officia iure facere cupiditate molestias animi quod et alias ad ipsa!</p>
+    <div class="about-projects-container" id="about">
+        <div class="about-container">
+            <p>ABOUT <br> <br>Developer with one year's hands-on experience working at a web agency based out of LA</p>
+        </div>
+        <div class="projects-container">
+            <p>PROJECTS <br> <br>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo earum quod voluptate, doloremque adipisci odio maxime ab odit, optio sapiente minus. Fuga excepturi possimus magnam dolorum accusamus, vel ut doloremque!</p>
+        </div>
     </div>
+    <div id="projects"></div>
 </template>
 
 <script setup>
@@ -12,5 +15,35 @@
 </script>
 
 <style lang="scss" scoped>
-    
+    .about-projects-container {
+        scroll-snap-align: start;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        height: 50vh;
+        .about-container {
+            
+            padding: 1.4rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            p {
+                padding: 1rem;
+                background-color: greenyellow;
+                font-family: $libre-franklin;
+            }
+        }
+        .projects-container {
+            padding: 1.4rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            p {
+                padding: 1rem;
+                background-color: greenyellow;
+                font-family: $libre-franklin;
+            }
+        }
+    }
 </style>
