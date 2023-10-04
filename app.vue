@@ -11,6 +11,9 @@
 </script>
 
 <style lang="scss">
+html {
+  font-size: 62.5%;
+}
 .site {
   background-image: url("./public/madrid_sunset.jpg");
   background-repeat: no-repeat;

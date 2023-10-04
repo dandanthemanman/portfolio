@@ -7,14 +7,28 @@
             <div class="nav-bar-item">
                 <a href="/#contact">Contact</a>
             </div>
-            <div class="nav-bar-item">
-                daniel.becker000@gmail.com
+            <div class="nav-bar-item" @click="handleEmailClick">
+                {{emailText}}
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
+const emailText = ref("daniel.becker000@gmail.com")
+
+const copyToClipboard = (callback) => {
+    navigator.clipboard.writeText('daniel.becker000@gmail.com').then(callback)
+}
+
+const handleEmailClick = () => {
+        copyToClipboard(() => {
+        console.log('handle email click used    ')
+        emailText.value = 'email copied to clipboard ✓'
+    })
+}
 
 </script>
 
@@ -22,10 +36,11 @@
 .nav-bar-container{
     display: flex;
     justify-content: space-between;
-    a {
-    text-decoration: none;  
-    color: unset;
-    }
+    align-items: center;
+        a {
+            text-decoration: none;  
+            color: unset;
+        }
     .name-container {
         display: flex;
         justify-content: center;
@@ -33,7 +48,8 @@
         text-align: center;
         .big-name{
             color: white;
-            font-size: 45px;
+            font-size: 4.5rem;
+            margin: 2rem;
         }
     }
     .items-container{
@@ -43,9 +59,9 @@
             justify-content: center;
             align-items: center;
             border: 1px solid red;
-            height: 50px;
-            width: 25vw;
+            margin: 2rem;
             text-align: center;
+            font-size: 1.6rem;
         }  
     }
     
