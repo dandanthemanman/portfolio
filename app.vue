@@ -14,7 +14,11 @@
 html {
   scroll-padding-top: 10.6rem;
   font-size: 62.5%;
+  body {
+    margin: 0px !important;
+  }
 }
+
 .site {
   background-image: url("./public/madrid_sunset.jpg");
   background-repeat: no-repeat;
@@ -25,6 +29,7 @@ html {
   min-height: 100vh;
   flex-direction: column;
   margin: 0;
+  padding: 8px;
 }
 
 .site-content {

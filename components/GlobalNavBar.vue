@@ -35,6 +35,7 @@ const handleEmailClick = () => {
 
 <style lang="scss" scoped>
 .nav-bar-container{ 
+    margin: -8px;
     border-bottom: 1px solid red;
     position: sticky;
     top: 0px;
