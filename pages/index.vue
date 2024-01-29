@@ -50,6 +50,7 @@
         }
     }
     .type-writer-effect p {
+        @media (min-width:768px) {
         overflow: hidden; /* Ensures the content is not revealed until the animation */
         border-right: .15em solid black; /* The typwriter cursor */
         white-space: nowrap; /* Keeps the content on a single line */
@@ -58,6 +59,7 @@
         animation: 
             delay-typing 3.5s steps(40, end),
             blink-caret .75s step-end infinite;
+        }
     }
 
     @keyframes typing {
