@@ -12,9 +12,12 @@
 
 <style lang="scss">
 html {
-  font-size: 62.5%;
-  scroll-snap-type: y mandatory;
-  scroll-padding-top: 10.6rem;
+  scroll-padding-top: 20.6rem;
+  @media (max-width:480px) {
+    scroll-padding-top: 10.6rem;
+    font-size: 62.5%;
+    scroll-snap-type: y mandatory;
+  }
 }
 .site {
   background-image: url("./public/madrid_sunset.jpg");
