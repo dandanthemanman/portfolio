@@ -17,8 +17,6 @@
 <style lang="scss" scoped>
     .about-projects-container {
         scroll-snap-align: start;
-        // display: grid;
-        // grid-template-columns: repeat(2, 1fr);
         height: 50vh;
         display: flex;
         flex-direction: column;
@@ -50,7 +48,7 @@
         }
     }
     .type-writer-effect p {
-        @media (min-width:768px) {
+        @media (min-width:960px) {
         overflow: hidden; /* Ensures the content is not revealed until the animation */
         border-right: .15em solid black; /* The typwriter cursor */
         white-space: nowrap; /* Keeps the content on a single line */
