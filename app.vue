@@ -35,22 +35,22 @@ html, body {
 .site-content {
   flex: 1;
 }
-.desktop {
-  display: none;
-  @media (min-width:480px) {
-    display: block;
+.mobile {
+  @media (min-width: 480px) {
+    display: none !important;
   }
 }
 .tablet {
-  display: none; 
-  @media (min-width: 480px) and (max-width: 960px) {
-    display: block;
+  @media (max-width:480px) {
+    display: none !important;
   }
-
+  @media (min-width:960px) {
+    display: none !important;
+  }
 }
-.mobile {
-  @media (min-width: 480px) {
-    display: none;
+.desktop {
+  @media (max-width:480px) {
+    display: none !important;
   }
 }
 </style>
