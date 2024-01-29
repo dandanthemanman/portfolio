@@ -5,10 +5,6 @@
             <a class="little-name" href="/#intro">web developer</a>
         </div>
         <div class="items-container">
-            <div class="nav-bar-item email-link" @click="handleEmailClick">
-                <span>{{emailText}}</span>
-                <span class="copy-to-clipboard-text">"copy email address to clipboard"</span>
-            </div>
         </div>
     </div>
 </template>
