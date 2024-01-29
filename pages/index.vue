@@ -1,10 +1,10 @@
 <template>
     <div class="about-projects-container" id="about">
-        <div class="about-container type-writer-effect">
+        <div class="about-container type-writer-effect ">
             <p>Developer with 1 year's hands-on experience building sites at LA based web agency </p>
         </div>
-        <div class="projects-container">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo earum quod voluptate, doloremque adipisci odio maxime ab odit, optio sapiente minus. Fuga excepturi possimus magnam dolorum accusamus, vel ut doloremque!</p>
+        <div class="projects-container type-writer-effect ">
+            <p>Projects</p>
         </div>
     </div>
     <div id="projects"></div>
@@ -17,10 +17,13 @@
 <style lang="scss" scoped>
     .about-projects-container {
         scroll-snap-align: start;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        // display: grid;
+        // grid-template-columns: repeat(2, 1fr);
         height: 50vh;
+        display: flex;
+        flex-direction: column;
         .about-container {
+            margin-right: auto;
             padding: 1.4rem;
             flex: 1;
             display: flex;
@@ -33,6 +36,7 @@
             }
         }
         .projects-container {
+            margin-left: auto;
             padding: 1.4rem;
             flex: 1;
             display: flex;
@@ -52,8 +56,8 @@
         margin: 0 auto; /* Gives that scrolling effect as the typing happens */
         letter-spacing: .15em; /* Adjust as needed */
         animation: 
-        typing 3.5s steps(40, end),
-        blink-caret .75s step-end infinite;
+            delay-typing 3.5s steps(40, end),
+            blink-caret .75s step-end infinite;
     }
 
     @keyframes typing {
@@ -65,4 +69,22 @@
     from, to { border-color: transparent }
     50% { border-color: black; }
     }
+
+    @keyframes delay-typing {
+        0% {
+            width: 0%;
+            opacity: 0%;
+            
+        }
+        30% {
+            width: 0%;
+            // display: block;
+        }
+        100% {
+            width: 100%;
+            // display: block;
+        }
+    }
+
+
 </style>
