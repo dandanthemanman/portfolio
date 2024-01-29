@@ -11,12 +11,12 @@
 </script>
 
 <style lang="scss">
-html {
+html, body {
   scroll-padding-top: 10.6rem;
   font-size: 62.5%;
-  body {
     margin: 0px !important;
-  }
+    width: 100%;
+  
 }
 
 .site {
@@ -34,5 +34,23 @@ html {
 
 .site-content {
   flex: 1;
+}
+.desktop {
+  display: none;
+  @media (min-width:480px) {
+    display: block;
+  }
+}
+.tablet {
+  display: none; 
+  @media (min-width: 480px) and (max-width: 960px) {
+    display: block;
+  }
+
+}
+.mobile {
+  @media (min-width: 480px) {
+    display: none;
+  }
 }
 </style>
