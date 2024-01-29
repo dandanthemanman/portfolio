@@ -2,11 +2,9 @@
     <div class="nav-bar-container">
         <div class="name-container">
             <a class="big-name" href="/#intro">Dan Becker</a>
+            <a class="little-name" href="/#intro">web developer</a>
         </div>
         <div class="items-container">
-            <!-- <div class="nav-bar-item">
-                <a href="/#contact">Contact</a>
-            </div> -->
             <div class="nav-bar-item email-link" @click="handleEmailClick">
                 <span>{{emailText}}</span>
                 <span class="copy-to-clipboard-text">"copy email address to clipboard"</span>
@@ -54,15 +52,24 @@ const handleEmailClick = () => {
         justify-content: center;
         align-items: center;
         text-align: center;
-       
+        flex-direction: column;
+       margin: 2rem;
         .big-name{
             color: white;
             font-size: 4.5rem;
-            margin: 2rem;
+            // margin: 2rem 2rem 0px;
             &:hover {
             color: greenyellow;
         }
         }
+        .little-name {
+            color: white;
+            font-size: 2rem;
+            // margin: 2rem;
+            &:hover {
+            color: greenyellow;
+        }
+     }
     }
     .items-container{
         display: flex; 

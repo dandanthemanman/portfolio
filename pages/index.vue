@@ -1,10 +1,10 @@
 <template>
     <div class="about-projects-container" id="about">
-        <div class="about-container type-writer-effect ">
-            <p>Developer with 1 year's hands-on experience building sites at LA based web agency </p>
+        <div class="about-container">
+            <p class="type-writer-effect">dynamic and engaging websites</p>
         </div>
-        <div class="projects-container type-writer-effect ">
-            <p>Projects</p>
+        <div class="projects-container">
+            <p class="type-writer-effect">Projects</p>
         </div>
     </div>
     <div id="projects"></div>
@@ -47,7 +47,16 @@
             }
         }
     }
-    .type-writer-effect p {
+    .type-writer-effect  {
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid black; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .15em; /* Adjust as needed */
+        animation: 
+            delay-typing 3.5s steps(40, end),
+            blink-caret .75s step-end infinite;
+
         @media (min-width:960px) {
         overflow: hidden; /* Ensures the content is not revealed until the animation */
         border-right: .15em solid black; /* The typwriter cursor */
