@@ -17,8 +17,6 @@
 <style lang="scss" scoped>
     .about-projects-container {
         scroll-snap-align: start;
-        // display: grid;
-        // grid-template-columns: repeat(2, 1fr);
         height: 50vh;
         display: flex;
         flex-direction: column;
