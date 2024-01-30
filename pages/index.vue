@@ -1,10 +1,14 @@
 <template>
     <div class="about-projects-container" id="about">
         <div class="about-container">
-            <p id="first-text" class="type-writer-effect">dynamic and engaging websites</p>
+            <p id="intro-paragraph" class="type-writer-effect">
+                Functional and efficient websites
+            </p>
         </div>
         <div class="projects-container">
-            <p id="second-text">Fluent in Javascript, HTML, and CSS</p>
+            <p id="second-paragraph">
+                Fluent in Javascript, HTML, and CSS
+            </p>
         </div>
     </div>
     <div id="projects"></div>
@@ -13,12 +17,14 @@
 <script>
 export default {
   mounted() {
-    const firstText = document.getElementById('first-text');
-    const secondText = document.getElementById('second-text');
+    const introParagraph = document.getElementById('intro-paragraph');
+    const secondParagraph = document.getElementById('second-paragraph');
+    
+      introParagraph.addEventListener('animationend', () => {
+        secondParagraph.classList.add('type-writer-effect')
+    })
+      
 
-    firstText.addEventListener('animationend', () => {
-      secondText.classList.add('type-writer-effect');
-    });
   },
 };
 </script>
