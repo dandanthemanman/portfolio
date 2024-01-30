@@ -8,5 +8,8 @@
 <script>
 
 </script>
-<style>
+<style lang="sss" scoped>
+* {
+    position: sticky;
+}
 </style>
