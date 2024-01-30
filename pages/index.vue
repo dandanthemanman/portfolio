@@ -1,17 +1,32 @@
 <template>
     <div class="about-projects-container" id="about">
-        <div class="about-container type-writer-effect ">
-            <p>Developer with 1 year's hands-on experience building sites at LA based web agency </p>
+        <div class="about-container">
+            <p id="intro-paragraph" class="type-writer-effect">
+                Functional and efficient websites
+            </p>
         </div>
-        <div class="projects-container type-writer-effect ">
-            <p>Projects</p>
+        <div class="projects-container">
+            <p id="second-paragraph">
+                Fluent in Javascript, HTML, and CSS
+            </p>
         </div>
     </div>
     <div id="projects"></div>
 </template>
 
-<script setup>
+<script>
+export default {
+  mounted() {
+    const introParagraph = document.getElementById('intro-paragraph');
+    const secondParagraph = document.getElementById('second-paragraph');
+    
+      introParagraph.addEventListener('animationend', () => {
+        secondParagraph.classList.add('type-writer-effect')
+    })
+      
 
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -44,10 +59,21 @@
                 padding: 1rem;
                 background-color: greenyellow;
                 font-family: $libre-franklin;
+                opacity: 0;
             }
         }
     }
-    .type-writer-effect p {
+    .type-writer-effect  {
+        opacity: 1 !important;
+        overflow: hidden; /* Ensures the content is not revealed until the animation */
+        border-right: .15em solid black; /* The typwriter cursor */
+        white-space: nowrap; /* Keeps the content on a single line */
+        margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+        letter-spacing: .15em; /* Adjust as needed */
+        animation: 
+            delay-typing 3.5s steps(40, end),
+            blink-caret .75s step-end infinite;
+
         @media (min-width:960px) {
         overflow: hidden; /* Ensures the content is not revealed until the animation */
         border-right: .15em solid black; /* The typwriter cursor */
@@ -61,8 +87,8 @@
     }
 
     @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+    from { width: 0; visibility: visible; }
+    to { width: 100%;  }
     }   
 
     @keyframes blink-caret {
@@ -72,17 +98,16 @@
 
     @keyframes delay-typing {
         0% {
-            width: 0%;
-            opacity: 0%;
+            max-width: 0%;
+            opacity: 1;
             
         }
         30% {
-            width: 0%;
-            // display: block;
+            max-width: 0%;
         }
         100% {
-            width: 100%;
-            // display: block;
+            max-width: 100%;
+            opacity: 1;
         }
     }
 
