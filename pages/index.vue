@@ -1,17 +1,26 @@
 <template>
     <div class="about-projects-container" id="about">
         <div class="about-container">
-            <p class="type-writer-effect">dynamic and engaging websites</p>
+            <p id="first-text" class="type-writer-effect">dynamic and engaging websites</p>
         </div>
         <div class="projects-container">
-            <p class="type-writer-effect">Projects</p>
+            <p id="second-text">Fluent in Javascript, HTML, and CSS</p>
         </div>
     </div>
     <div id="projects"></div>
 </template>
 
-<script setup>
+<script>
+export default {
+  mounted() {
+    const firstText = document.getElementById('first-text');
+    const secondText = document.getElementById('second-text');
 
+    firstText.addEventListener('animationend', () => {
+      secondText.classList.add('type-writer-effect');
+    });
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -44,10 +53,12 @@
                 padding: 1rem;
                 background-color: greenyellow;
                 font-family: $libre-franklin;
+                visibility: hidden;
             }
         }
     }
     .type-writer-effect  {
+        visibility: visible !important;
         overflow: hidden; /* Ensures the content is not revealed until the animation */
         border-right: .15em solid black; /* The typwriter cursor */
         white-space: nowrap; /* Keeps the content on a single line */
@@ -70,8 +81,8 @@
     }
 
     @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+    from { width: 0; visibility: visible; }
+    to { width: 100%;  }
     }   
 
     @keyframes blink-caret {
@@ -82,16 +93,15 @@
     @keyframes delay-typing {
         0% {
             width: 0%;
-            opacity: 0%;
+            visibility: visible;
             
         }
         30% {
             width: 0%;
-            // display: block;
         }
         100% {
             width: 100%;
-            // display: block;
+            visibility:visible;
         }
     }
 
