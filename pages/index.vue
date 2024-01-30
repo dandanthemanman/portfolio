@@ -59,12 +59,12 @@ export default {
                 padding: 1rem;
                 background-color: greenyellow;
                 font-family: $libre-franklin;
-                visibility: hidden;
+                opacity: 0;
             }
         }
     }
     .type-writer-effect  {
-        visibility: visible !important;
+        opacity: 1 !important;
         overflow: hidden; /* Ensures the content is not revealed until the animation */
         border-right: .15em solid black; /* The typwriter cursor */
         white-space: nowrap; /* Keeps the content on a single line */
@@ -99,7 +99,7 @@ export default {
     @keyframes delay-typing {
         0% {
             max-width: 0%;
-            visibility: visible;
+            opacity: 1;
             
         }
         30% {
@@ -107,7 +107,7 @@ export default {
         }
         100% {
             max-width: 100%;
-            visibility:visible;
+            opacity: 1;
         }
     }
 
