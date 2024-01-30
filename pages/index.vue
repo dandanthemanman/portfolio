@@ -98,15 +98,15 @@ export default {
 
     @keyframes delay-typing {
         0% {
-            width: 0%;
+            max-width: 0%;
             visibility: visible;
             
         }
         30% {
-            width: 0%;
+            max-width: 0%;
         }
         100% {
-            width: 100%;
+            max-width: 100%;
             visibility:visible;
         }
     }
