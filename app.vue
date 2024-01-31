@@ -26,7 +26,7 @@ html, body {
   background-size: cover;
   background-attachment: fixed;
   display: flex;
-  min-height: 100vh;
+  min-height: -webkit-fill-available;
   flex-direction: column;
   margin: 0;
   padding: 8px;
