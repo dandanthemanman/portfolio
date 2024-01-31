@@ -35,7 +35,7 @@ html, body {
 .global-nav-component {
     position: sticky;
     top: 0px; 
-    // margin: -8px;
+    margin: -8px;
 }
 
 .site-content {
