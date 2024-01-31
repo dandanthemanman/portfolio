@@ -1,6 +1,6 @@
 <template>
 <div class="site">
-  <GlobalNavBar class="global-nav-component"/>
+  <GlobalNavBar/>
   <NuxtPage/>
   <GlobalFooter/>
   </div>
@@ -30,12 +30,6 @@ html, body {
   flex-direction: column;
   margin: 0;
   padding: 8px;
-}
-
-.global-nav-component {
-    position: sticky;
-    top: 0px; 
-    margin: -8px;
 }
 
 .site-content {
