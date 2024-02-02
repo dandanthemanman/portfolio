@@ -4,7 +4,16 @@
             <p id="intro-paragraph" class="type-writer-effect">
                 Functional and efficient websites
             </p>
+            <span>
+                <VueIcon/>
+                <ReactIcon/>
+                <JsIcon/>
+                <NetlifyIcon/>
+                <SassIcon/>
+                <CssIcon/>
+            </span>
         </div>
+
         <div class="projects-container">
             <p id="second-paragraph">
                 Fluent in Javascript, HTML, and CSS
@@ -15,6 +24,7 @@
 </template>
 
 <script>
+
 export default {
   mounted() {
     const introParagraph = document.getElementById('intro-paragraph');
@@ -32,7 +42,7 @@ export default {
 <style lang="scss" scoped>
     .about-projects-container {
         scroll-snap-align: start;
-        height: 50vh;
+        // height: 50vh;
         display: flex;
         flex-direction: column;
         .about-container {
