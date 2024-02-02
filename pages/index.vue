@@ -1,38 +1,65 @@
 <template>
     <div class="about-projects-container" id="about">
         <div class="about-container">
-            <p id="intro-paragraph" class="type-writer-effect">
+            <p ref="firstTypingAnimation" class="type-writer-effect">
                 Functional and efficient websites
             </p>
         </div>
+
         <div class="projects-container">
-            <p id="second-paragraph">
+            <p ref="secondTypingAnimation" >
                 Fluent in Javascript, HTML, and CSS
             </p>
+            
         </div>
+        <div id="stack-container" ref="fadeInAnimation">
+                <VueIcon/>
+                <ReactIcon/>
+                <JsIcon/>
+                <NetlifyIcon/>
+                <SassIcon/>
+                <CssIcon/>
+            </div>
     </div>
     <div id="projects"></div>
 </template>
 
 <script>
-export default {
-  mounted() {
-    const introParagraph = document.getElementById('intro-paragraph');
-    const secondParagraph = document.getElementById('second-paragraph');
-    
-      introParagraph.addEventListener('animationend', () => {
-        secondParagraph.classList.add('type-writer-effect')
-    })
-      
 
-  },
-};
+export default {
+    setup() {
+        const firstTypingAnimation = ref(null);
+        const secondTypingAnimation = ref(null);
+        const fadeInAnimation = ref(null);
+        const stackIcons = ref([])
+        return {
+            firstTypingAnimation, 
+            secondTypingAnimation, 
+            fadeInAnimation, 
+            stackIcons,
+        }
+    },
+    mounted() {
+        this.firstTypingAnimation.addEventListener('animationend', () => {
+            this.secondTypingAnimation.classList.add('type-writer-effect')
+        });
+
+        this.stackIcons = Array.from(this.fadeInAnimation.getElementsByTagName('svg'))
+
+        this.secondTypingAnimation.addEventListener('animationend', () => {
+                this.stackIcons.forEach((icon, index) => {
+                    icon.classList.add('fade-in-animation');
+                    icon.style.animationDelay = `${index * 0.5}s`
+            })
+        })
+        
+  }
+}
 </script>
 
 <style lang="scss" scoped>
     .about-projects-container {
         scroll-snap-align: start;
-        height: 50vh;
         display: flex;
         flex-direction: column;
         .about-container {
@@ -47,6 +74,7 @@ export default {
                 background-color: greenyellow;
                 font-family: $libre-franklin;
             }
+            
         }
         .projects-container {
             margin-left: auto;
@@ -56,13 +84,37 @@ export default {
             flex-direction: column;
             justify-content: flex-end;
             p {
+                margin-left: auto;
                 padding: 1rem;
                 background-color: greenyellow;
                 font-family: $libre-franklin;
                 opacity: 0;
             }
+            
+        }
+        #stack-container {
+                display: flex;
+                max-width: 100vw;
+                svg {
+                    opacity: 0;
+                }
+            }
+    }
+    .fade-in-animation {
+        animation: fadeIn 0.5s ease forwards;
+    }
+    @keyframes fadeIn {
+        0% {
+            opacity: 0; transform: scale(0.5)
+        }
+        80% {
+            transform: scale(1.1)
+        }
+        100% {
+            opacity: 1; transform: scale(1)
         }
     }
+
     .type-writer-effect  {
         opacity: 1 !important;
         overflow: hidden; /* Ensures the content is not revealed until the animation */
