@@ -6,7 +6,18 @@
   </div>
 </template>
 
-<script setup>
+<script>
+export default {
+  mounted() {
+    this.setVhVariable();
+  }, 
+  methods: {
+    setVhVariable() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+  }
+}
 
 </script>
 
@@ -26,7 +37,8 @@ html, body {
   background-size: cover;
   background-attachment: fixed;
   display: flex;
-  min-height: -webkit-fill-available;
+  // VV don't understand why the 1vh is necessary here 
+  min-height: calc(var(--vh, 1vh) * 100);
   flex-direction: column;
   margin: 0;
   padding: 8px;
