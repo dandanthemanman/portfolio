@@ -4,20 +4,21 @@
             <p id="intro-paragraph" class="type-writer-effect">
                 Functional and efficient websites
             </p>
-            <span>
-                <VueIcon/>
-                <ReactIcon/>
-                <JsIcon/>
-                <NetlifyIcon/>
-                <SassIcon/>
-                <CssIcon/>
-            </span>
+            
         </div>
 
         <div class="projects-container">
             <p id="second-paragraph">
                 Fluent in Javascript, HTML, and CSS
             </p>
+            <div id="stack-container">
+                <VueIcon/>
+                <ReactIcon/>
+                <JsIcon/>
+                <NetlifyIcon/>
+                <SassIcon/>
+                <CssIcon/>
+            </div>
         </div>
     </div>
     <div id="projects"></div>
@@ -26,9 +27,13 @@
 <script>
 
 export default {
+
   mounted() {
     const introParagraph = document.getElementById('intro-paragraph');
-    const secondParagraph = document.getElementById('second-paragraph');
+        const secondParagraph = document.getElementById('second-paragraph');
+        const stackContainer = document.getElementById('stack-container')
+        const stackIcons = stackContainer.getElementsByTagName('svg');
+        console.log(stackIcons)
     
       introParagraph.addEventListener('animationend', () => {
         secondParagraph.classList.add('type-writer-effect')
@@ -57,6 +62,7 @@ export default {
                 background-color: greenyellow;
                 font-family: $libre-franklin;
             }
+            
         }
         .projects-container {
             margin-left: auto;
@@ -71,8 +77,26 @@ export default {
                 font-family: $libre-franklin;
                 opacity: 0;
             }
+            #stack-container {
+                opacity: 0.2;
+                display: flex;
+                max-width: 100vw;
+                animation: fadeIn 5s;
+            }
         }
     }
+    .fade-in {
+        animation: fadeIn 5s;
+    }
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
     .type-writer-effect  {
         opacity: 1 !important;
         overflow: hidden; /* Ensures the content is not revealed until the animation */
