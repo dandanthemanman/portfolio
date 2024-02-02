@@ -1,4 +1,5 @@
 <template>
+<div id="background"></div>
 <div class="site">
   <GlobalNavBar class="global-nav-component"/>
   <NuxtPage/>
@@ -30,12 +31,23 @@ html, body {
   
 }
 
-.site {
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   background-image: url("./public/madrid_sunset.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
   background-size: cover;
-  background-attachment: fixed;
+  z-index: -1;
+}
+
+.site {
+  // background-image: url("./public/madrid_sunset.jpg");
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: cover;
+  // background-attachment: fixed;
   display: flex;
   // VV don't understand why the 1vh is necessary here 
   min-height: calc(var(--vh, 1vh) * 100);
