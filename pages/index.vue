@@ -1,14 +1,13 @@
 <template>
     <div class="about-projects-container" id="about">
         <div class="about-container">
-            <p id="intro-paragraph" class="type-writer-effect">
+            <p ref="firstTypingAnimation" class="type-writer-effect">
                 Functional and efficient websites
             </p>
-            
         </div>
 
         <div class="projects-container">
-            <p id="second-paragraph">
+            <p ref="secondTypingAnimation" >
                 Fluent in Javascript, HTML, and CSS
             </p>
             <div id="stack-container">
@@ -27,21 +26,21 @@
 <script>
 
 export default {
+    setup() {
+        const firstTypingAnimation = ref(null);
+        const secondTypingAnimation = ref(null);
+        return {
+            firstTypingAnimation, 
+            secondTypingAnimation
+        }
+    },
+    mounted() {
 
-  mounted() {
-    const introParagraph = document.getElementById('intro-paragraph');
-        const secondParagraph = document.getElementById('second-paragraph');
-        const stackContainer = document.getElementById('stack-container')
-        const stackIcons = stackContainer.getElementsByTagName('svg');
-        console.log(stackIcons)
-    
-      introParagraph.addEventListener('animationend', () => {
-        secondParagraph.classList.add('type-writer-effect')
-    })
-      
-
-  },
-};
+        this.firstTypingAnimation.addEventListener('animationend', () => {
+            this.secondTypingAnimation.classList.add('type-writer-effect')
+        })
+  }
+}
 </script>
 
 <style lang="scss" scoped>
