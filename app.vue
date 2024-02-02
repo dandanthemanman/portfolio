@@ -1,4 +1,5 @@
 <template>
+<div id="background"></div>
 <div class="site">
   <GlobalNavBar class="global-nav-component"/>
   <NuxtPage/>
@@ -6,7 +7,18 @@
   </div>
 </template>
 
-<script setup>
+<script>
+export default {
+  mounted() {
+    this.setVhVariable();
+  }, 
+  methods: {
+    setVhVariable() {
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+  }
+}
 
 </script>
 
@@ -19,14 +31,26 @@ html, body {
   
 }
 
-.site {
+#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   background-image: url("./public/madrid_sunset.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
   background-size: cover;
-  background-attachment: fixed;
+  z-index: -1;
+}
+
+.site {
+  // background-image: url("./public/madrid_sunset.jpg");
+  // background-repeat: no-repeat;
+  // background-position: center;
+  // background-size: cover;
+  // background-attachment: fixed;
   display: flex;
-  min-height: 100vh;
+  // VV don't understand why the 1vh is necessary here 
+  min-height: calc(var(--vh, 1vh) * 100);
   flex-direction: column;
   margin: 0;
   padding: 8px;
