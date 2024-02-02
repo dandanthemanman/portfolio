@@ -10,7 +10,9 @@
             <p ref="secondTypingAnimation" >
                 Fluent in Javascript, HTML, and CSS
             </p>
-            <div id="stack-container" ref="fadeInAnimation">
+            
+        </div>
+        <div id="stack-container" ref="fadeInAnimation">
                 <VueIcon/>
                 <ReactIcon/>
                 <JsIcon/>
@@ -18,7 +20,6 @@
                 <SassIcon/>
                 <CssIcon/>
             </div>
-        </div>
     </div>
     <div id="projects"></div>
 </template>
@@ -48,7 +49,7 @@ export default {
         this.secondTypingAnimation.addEventListener('animationend', () => {
                 this.stackIcons.forEach((icon, index) => {
                     icon.classList.add('fade-in-animation');
-                    icon.style.animationDelay = `${index * 1}s`
+                    icon.style.animationDelay = `${index * 0.5}s`
             })
         })
         
@@ -83,19 +84,21 @@ export default {
             flex-direction: column;
             justify-content: flex-end;
             p {
+                margin-left: auto;
                 padding: 1rem;
                 background-color: greenyellow;
                 font-family: $libre-franklin;
                 opacity: 0;
             }
-            #stack-container {
+            
+        }
+        #stack-container {
                 display: flex;
                 max-width: 100vw;
                 svg {
                     opacity: 0;
                 }
             }
-        }
     }
     .fade-in-animation {
         animation: fadeIn 0.5s ease forwards;
