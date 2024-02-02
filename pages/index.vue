@@ -10,7 +10,7 @@
             <p ref="secondTypingAnimation" >
                 Fluent in Javascript, HTML, and CSS
             </p>
-            <div id="stack-container">
+            <div id="stack-container" ref="fadeInAnimation">
                 <VueIcon/>
                 <ReactIcon/>
                 <JsIcon/>
@@ -29,16 +29,29 @@ export default {
     setup() {
         const firstTypingAnimation = ref(null);
         const secondTypingAnimation = ref(null);
+        const fadeInAnimation = ref(null);
+        const stackIcons = ref([])
         return {
             firstTypingAnimation, 
-            secondTypingAnimation
+            secondTypingAnimation, 
+            fadeInAnimation, 
+            stackIcons,
         }
     },
     mounted() {
-
         this.firstTypingAnimation.addEventListener('animationend', () => {
             this.secondTypingAnimation.classList.add('type-writer-effect')
+        });
+
+        this.stackIcons = Array.from(this.fadeInAnimation.getElementsByTagName('svg'))
+
+        this.secondTypingAnimation.addEventListener('animationend', () => {
+                this.stackIcons.forEach((icon, index) => {
+                    icon.classList.add('fade-in-animation');
+                    icon.style.animationDelay = `${index * 0.5}s`
+            })
         })
+        
   }
 }
 </script>
@@ -46,7 +59,6 @@ export default {
 <style lang="scss" scoped>
     .about-projects-container {
         scroll-snap-align: start;
-        // height: 50vh;
         display: flex;
         flex-direction: column;
         .about-container {
@@ -77,15 +89,16 @@ export default {
                 opacity: 0;
             }
             #stack-container {
-                opacity: 0.2;
                 display: flex;
                 max-width: 100vw;
-                animation: fadeIn 5s;
+                svg {
+                    opacity: 0;
+                }
             }
         }
     }
-    .fade-in {
-        animation: fadeIn 5s;
+    .fade-in-animation {
+        animation: fadeIn 5s forwards;
     }
     @keyframes fadeIn {
         0% {
