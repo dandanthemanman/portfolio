@@ -20,7 +20,7 @@
                 <SassIcon/>
                 <CssIcon/>
         </div>
-        <div class="contact-container">
+        <div class="contact-container" ref="contactContainer">
             <p>Contact</p>
         </div>
     </div>
@@ -33,12 +33,14 @@ export default {
         const firstTypingAnimation = ref(null);
         const secondTypingAnimation = ref(null);
         const fadeInAnimation = ref(null);
-        const stackIcons = ref([])
+        const stackIcons = ref([]);
+        const contactContainer = ref(null)
         return {
             firstTypingAnimation, 
             secondTypingAnimation, 
             fadeInAnimation, 
             stackIcons,
+            contactContainer
         }
     },
     mounted() {
@@ -52,8 +54,12 @@ export default {
                 this.stackIcons.forEach((icon, index) => {
                     icon.classList.add('fade-in-animation');
                     icon.style.animationDelay = `${index * 0.5}s`
+                })
+            this.stackIcons[this.stackIcons.length - 1].addEventListener('animationend', () => {
+                this.contactContainer.style.visibility = 'visible'
             })
         })
+        
         
   }
 }
@@ -69,18 +75,32 @@ export default {
     color: cornsilk;
     font-family: $orbitron;
     position: relative;
+    visibility: hidden;
+}
+.contact-container::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 1px solid white;
+    border-radius: 50%;  
+    animation: pulse 4s infinite; 
+    transform: scale(0.75);
+    animation-delay: 2s;
+    // visibility: hidden;
 }
 .contact-container::after {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    border: 1px solid beige;
+    border: 1px solid white;
     border-radius: 50%;  
-    animation: pulse 2s infinite; 
+    animation: pulse 4s infinite; 
+    transform: scale(0.75);
+    // visibility: hidden;
 }
 @keyframes pulse {
     to {
-    transform: scale(1.5);
+    transform: scale(2);
     opacity: 0;
   }
 }
