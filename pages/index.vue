@@ -56,7 +56,7 @@ export default {
                     icon.style.animationDelay = `${index * 0.5}s`
                 })
             this.stackIcons[this.stackIcons.length - 1].addEventListener('animationend', () => {
-                this.contactContainer.style.visibility = 'visible'
+                this.contactContainer.style.opacity = '1'
             })
         })
         
@@ -75,7 +75,8 @@ export default {
     color: cornsilk;
     font-family: $orbitron;
     position: relative;
-    visibility: hidden;
+    opacity: 0;
+    transition: opacity, 2s;
 }
 .contact-container::before {
     content: '';
