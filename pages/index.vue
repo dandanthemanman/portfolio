@@ -19,9 +19,11 @@
                 <NetlifyIcon/>
                 <SassIcon/>
                 <CssIcon/>
-            </div>
+        </div>
+        <div class="contact-container">
+            <p>Contact</p>
+        </div>
     </div>
-    <div id="projects"></div>
 </template>
 
 <script>
@@ -58,6 +60,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&family=Protest+Riot&display=swap');
+
+.contact-container {
+    border: 1px solid beige;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: cornsilk;
+    font-family: $orbitron;
+    p {
+        // color: blue;
+        
+    }
+}
     .about-projects-container {
         scroll-snap-align: start;
         display: flex;
