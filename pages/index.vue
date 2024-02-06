@@ -2,13 +2,13 @@
     <div class="about-projects-container" id="about">
         <div class="about-container">
             <p ref="firstTypingAnimation" class="type-writer-effect">
-                Functional and efficient websites
+                Functional and beautiful websites.
             </p>
         </div>
 
         <div class="projects-container">
             <p ref="secondTypingAnimation" >
-                Fluent in Javascript, HTML, and CSS
+                web developer at Bean.la
             </p>
             
         </div>
