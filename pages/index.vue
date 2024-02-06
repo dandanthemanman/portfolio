@@ -63,18 +63,29 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&family=Protest+Riot&display=swap');
 
 .contact-container {
-    border: 1px solid beige;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: cornsilk;
     font-family: $orbitron;
-    p {
-        // color: blue;
-        
-    }
+    position: relative;
 }
+.contact-container::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 1px solid beige;
+    border-radius: 50%;  
+    animation: pulse 2s infinite; 
+}
+@keyframes pulse {
+    to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+
     .about-projects-container {
         scroll-snap-align: start;
         display: flex;
