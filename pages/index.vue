@@ -21,7 +21,8 @@
                 <CssIcon/>
         </div>
         <div class="contact-container" ref="contactContainer">
-            <p>Contact</p>
+            <a href="mailto:daniel.becker000@gmail.com">
+                Contact</a>
         </div>
     </div>
 </template>
@@ -87,7 +88,6 @@ export default {
     animation: pulse 4s infinite; 
     transform: scale(0.75);
     animation-delay: 2s;
-    // visibility: hidden;
 }
 .contact-container::after {
     content: '';
@@ -97,7 +97,6 @@ export default {
     border-radius: 50%;  
     animation: pulse 4s infinite; 
     transform: scale(0.75);
-    // visibility: hidden;
 }
 @keyframes pulse {
     to {
