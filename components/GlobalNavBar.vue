@@ -9,4 +9,7 @@
 
 </script>
 <style lang="scss" scoped>
+* {
+    z-index: 10;
+}
 </style>

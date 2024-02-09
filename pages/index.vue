@@ -21,8 +21,8 @@
                 <CssIcon/>
         </div>
         <div class="contact-container" ref="contactContainer">
-            <a href="mailto:daniel.becker000@gmail.com">
-                Contact</a>
+            <p @click="handleEmailClick">
+                {{ contactText }}</p>
         </div>
     </div>
 </template>
@@ -36,12 +36,14 @@ export default {
         const fadeInAnimation = ref(null);
         const stackIcons = ref([]);
         const contactContainer = ref(null)
+        const contactText = ref("Contact")
         return {
-            firstTypingAnimation, 
-            secondTypingAnimation, 
-            fadeInAnimation, 
+            firstTypingAnimation,
+            secondTypingAnimation,
+            fadeInAnimation,
             stackIcons,
-            contactContainer
+            contactContainer,
+            contactText
         }
     },
     mounted() {
@@ -52,17 +54,28 @@ export default {
         this.stackIcons = Array.from(this.fadeInAnimation.getElementsByTagName('svg'))
 
         this.secondTypingAnimation.addEventListener('animationend', () => {
-                this.stackIcons.forEach((icon, index) => {
-                    icon.classList.add('fade-in-animation');
-                    icon.style.animationDelay = `${index * 0.5}s`
-                })
+            this.stackIcons.forEach((icon, index) => {
+                icon.classList.add('fade-in-animation');
+                icon.style.animationDelay = `${index * 0.5}s`
+            })
             this.stackIcons[this.stackIcons.length - 1].addEventListener('animationend', () => {
                 this.contactContainer.style.opacity = '1'
             })
         })
-        
-        
-  }
+
+
+    },
+    methods: {
+        copyToClipboard(callback) {
+            navigator.clipboard.writeText('daniel.becker000@gmail.com').then(callback)
+        },
+        handleEmailClick() {
+            this.copyToClipboard(() => {
+            console.log('handle email click used')
+            this.contactText = 'email copied to clipboard ✓'
+            })
+        },
+    }
 }
 </script>
 
@@ -70,7 +83,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&family=Protest+Riot&display=swap');
 
 .contact-container {
-    z-index: -1;
+    z-index: 5;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,6 +99,7 @@ export default {
     }
 }
 .contact-container::before {
+    z-index: -5;
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -96,6 +110,7 @@ export default {
     animation-delay: 2s;
 }
 .contact-container::after {
+    z-index: -5;
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
