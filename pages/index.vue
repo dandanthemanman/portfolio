@@ -70,6 +70,7 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&family=Protest+Riot&display=swap');
 
 .contact-container {
+    z-index: -1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,6 +79,11 @@ export default {
     position: relative;
     opacity: 0;
     transition: opacity, 2s;
+    a {
+        text-decoration: none;
+        color: cornsilk;
+        font-size: 1.6rem;
+    }
 }
 .contact-container::before {
     content: '';
@@ -141,6 +147,7 @@ export default {
             
         }
         #stack-container {
+                z-index: -1;
                 display: flex;
                 max-width: 100vw;
                 svg {
