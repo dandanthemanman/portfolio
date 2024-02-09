@@ -4,12 +4,8 @@
             <a class="big-name" href="/#intro">Dan Becker</a>
         </div>
         <div class="items-container">
-            <div class="nav-bar-item">
-                <a href="/#contact">Contact</a>
-            </div>
             <div class="nav-bar-item email-link" @click="handleEmailClick">
                 <span>{{emailText}}</span>
-                <span class="copy-to-clipboard-text">"copy email address to clipboard"</span>
             </div>
         </div>
     </div>
@@ -80,15 +76,6 @@ const handleEmailClick = () => {
             &.email-link {
                 display: flex;
                 flex-direction: column;
-                .copy-to-clipboard-text {
-                    transform: translateY(calc(200%));  
-                }
-                &:hover {
-                    span {
-                        transform: translateY(calc(-200% - 0.5rem));  
-                        transition: transform 0.3s cubic-bezier(0.45, 0, 0.55, 1);
-                    }
-                }     
             }
         }  
     }

@@ -2,13 +2,13 @@
     <div class="about-projects-container" id="about">
         <div class="about-container">
             <p ref="firstTypingAnimation" class="type-writer-effect">
-                Functional and efficient websites
+                Functional and beautiful websites.
             </p>
         </div>
 
         <div class="projects-container">
             <p ref="secondTypingAnimation" >
-                Fluent in Javascript, HTML, and CSS
+                web developer at Bean.la
             </p>
             
         </div>
@@ -19,9 +19,12 @@
                 <NetlifyIcon/>
                 <SassIcon/>
                 <CssIcon/>
-            </div>
+        </div>
+        <div class="contact-container" ref="contactContainer">
+            <p @click="handleEmailClick">
+                {{ contactText }}</p>
+        </div>
     </div>
-    <div id="projects"></div>
 </template>
 
 <script>
@@ -31,12 +34,16 @@ export default {
         const firstTypingAnimation = ref(null);
         const secondTypingAnimation = ref(null);
         const fadeInAnimation = ref(null);
-        const stackIcons = ref([])
+        const stackIcons = ref([]);
+        const contactContainer = ref(null)
+        const contactText = ref("Contact")
         return {
-            firstTypingAnimation, 
-            secondTypingAnimation, 
-            fadeInAnimation, 
+            firstTypingAnimation,
+            secondTypingAnimation,
+            fadeInAnimation,
             stackIcons,
+            contactContainer,
+            contactText
         }
     },
     mounted() {
@@ -47,17 +54,79 @@ export default {
         this.stackIcons = Array.from(this.fadeInAnimation.getElementsByTagName('svg'))
 
         this.secondTypingAnimation.addEventListener('animationend', () => {
-                this.stackIcons.forEach((icon, index) => {
-                    icon.classList.add('fade-in-animation');
-                    icon.style.animationDelay = `${index * 0.5}s`
+            this.stackIcons.forEach((icon, index) => {
+                icon.classList.add('fade-in-animation');
+                icon.style.animationDelay = `${index * 0.5}s`
+            })
+            this.stackIcons[this.stackIcons.length - 1].addEventListener('animationend', () => {
+                this.contactContainer.style.opacity = '1'
             })
         })
-        
-  }
+
+
+    },
+    methods: {
+        copyToClipboard(callback) {
+            navigator.clipboard.writeText('daniel.becker000@gmail.com').then(callback)
+        },
+        handleEmailClick() {
+            this.copyToClipboard(() => {
+            console.log('handle email click used')
+            this.contactText = 'email copied to clipboard ✓'
+            })
+        },
+    }
 }
 </script>
 
 <style lang="scss" scoped>
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&family=Protest+Riot&display=swap');
+
+.contact-container {
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: cornsilk;
+    font-family: $orbitron;
+    position: relative;
+    opacity: 0;
+    transition: opacity, 2s;
+    a {
+        text-decoration: none;
+        color: cornsilk;
+        font-size: 1.6rem;
+    }
+}
+.contact-container::before {
+    z-index: -5;
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 1px solid white;
+    border-radius: 50%;  
+    animation: pulse 4s infinite; 
+    transform: scale(0.75);
+    animation-delay: 2s;
+}
+.contact-container::after {
+    z-index: -5;
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 1px solid white;
+    border-radius: 50%;  
+    animation: pulse 4s infinite; 
+    transform: scale(0.75);
+}
+@keyframes pulse {
+    to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+
     .about-projects-container {
         scroll-snap-align: start;
         display: flex;
@@ -93,6 +162,7 @@ export default {
             
         }
         #stack-container {
+                z-index: -1;
                 display: flex;
                 max-width: 100vw;
                 svg {
