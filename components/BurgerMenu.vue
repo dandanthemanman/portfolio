@@ -1,17 +1,12 @@
 <template>
     <div>
-        <h1>tester</h1>
+        <MenuIcon/>
     </div>
 </template>
 
-<script>
-export default {
-    setup () {
-        
-
-        return {}
-    }
-}
+<script setup>
+    import CloseIcon from '@/components/CloseIcon.vue'
+    import MenuIcon from '@/components/MenuIcon.vue'
 </script>
 
 <style lang="scss" scoped>
