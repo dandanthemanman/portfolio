@@ -1,14 +1,19 @@
 <template>
     <div>
-        <MenuIcon/>
+        <MenuIcon class="menu-icon"/>
     </div>
 </template>
 
 <script setup>
-    import CloseIcon from '@/components/CloseIcon.vue'
-    import MenuIcon from '@/components/MenuIcon.vue'
+import MenuIcon from '@/components/MenuIcon.vue'
+import { store } from "../store/store"
 </script>
 
 <style lang="scss" scoped>
+    .menu-icon {
+        height: 40px;
+        width: 40px;
+        padding: 2rem;
+    }
 
 </style>

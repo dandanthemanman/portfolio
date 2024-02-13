@@ -8,7 +8,7 @@
 
         <div class="projects-container">
             <p ref="secondTypingAnimation" >
-                web developer at Bean.la
+                currently building at Bean.la
             </p>
             
         </div>
