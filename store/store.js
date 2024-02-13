@@ -1,5 +1,9 @@
 import { reactive } from 'vue'
 
 export const store = reactive({
-  count: 3
+    burgerMenuOpen: false, 
+    toggle() {
+        
+        this.burgerMenuOpen = !this.burgerMenuOpen
+    } 
 })
