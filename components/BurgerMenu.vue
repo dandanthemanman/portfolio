@@ -1,8 +1,12 @@
 <template>
     <div @click="toggleMenu" style="position: relative; height: 100px">
-         <div class="mobile-menu" :style="menuPosition">
+         <aside class="mobile-menu" :style="menuPosition">
             <CloseIcon class="close-icon" />
-        </div>
+            <a href="#work">Work</a>
+            <a href="https://github.com/dandanthemanman" target="_blank">github</a>
+            <a href="https://www.linkedin.com/in/dan-becker-2abb01107/" target="_blank">linkedIn</a>
+            <a href="">copy of my resume (PDF)</a>
+        </aside>
         <MenuIcon class="menu-icon"/>
     </div>
 </template>
@@ -22,7 +26,7 @@ const toggleMenu = () => {
 
 const menuPosition = computed(() => {
     return {
-        "transform": menuOpen.value ? "translateX(-100vw)" : ""
+        "transform": menuOpen.value ? "translateX(-100vw)" : "translateX(8px)"
     }
 })
 
@@ -30,14 +34,23 @@ const menuPosition = computed(() => {
 
 <style lang="scss" scoped>
 .mobile-menu {
+    width: 100vw;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     left: 80px;
     height: 100vh;
     margin-top: -2rem;
-    width: 100vw;
     z-index: 10;
-    background-color: beige;
-    transition: transform ease 1s;
+    background-color: rgb(59, 108, 173);
+    transition: transform ease 0.5s;
+    a {
+        text-decoration: none;
+        color: white;
+        font-size: 2.5rem;
+        padding: 20px;
+    }
     .enter {
         animation-duration: 0.5s;
         animation-name: mobile-menu-slide;

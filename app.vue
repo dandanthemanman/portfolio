@@ -23,6 +23,12 @@ export default {
 </script>
 
 <style lang="scss">
+#__nuxt {
+  overflow: hidden;
+  height: 100%
+}
+
+html{scroll-behavior:smooth}
 html, body {
   scroll-padding-top: 10.6rem;
   font-size: 62.5%;

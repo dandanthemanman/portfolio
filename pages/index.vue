@@ -24,6 +24,7 @@
             <p @click="handleEmailClick">
                 {{ contactText }}</p>
         </div>
+        <div id="work"></div>
     </div>
 </template>
 
@@ -82,6 +83,13 @@ export default {
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&family=Protest+Riot&display=swap');
 
+#work {
+    margin-top: 300px;
+    height: 200px;
+    width: 100vw;
+    background-color: grey;
+    scroll-behavior: smooth;  
+}
 .contact-container {
     z-index: 5;
     display: flex;
