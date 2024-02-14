@@ -24,7 +24,7 @@
             <p @click="handleEmailClick">
                 {{ contactText }}</p>
         </div>
-        <div id="work"></div>
+        <WorkSection/>
     </div>
 </template>
 
@@ -87,8 +87,9 @@ export default {
     margin-top: 300px;
     height: 200px;
     width: 100vw;
-    background-color: grey;
+    border: 1px solid red;
     scroll-behavior: smooth;  
+    margin-left: -8px;
 }
 .contact-container {
     z-index: 5;

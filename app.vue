@@ -24,8 +24,7 @@ export default {
 
 <style lang="scss">
 #__nuxt {
-  overflow: hidden;
-  height: 100%
+  // overflow: hidden;
 }
 
 html{scroll-behavior:smooth}
@@ -49,13 +48,7 @@ html, body {
 }
 
 .site {
-  // background-image: url("./public/madrid_sunset.jpg");
-  // background-repeat: no-repeat;
-  // background-position: center;
-  // background-size: cover;
-  // background-attachment: fixed;
   display: flex;
-  // VV don't understand why the 1vh is necessary here 
   min-height: calc(var(--vh, 1vh) * 100);
   flex-direction: column;
   margin: 0;
