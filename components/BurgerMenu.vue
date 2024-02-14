@@ -15,7 +15,6 @@
 import MenuIcon from '@/components/MenuIcon.vue'
 import CloseIcon from '@/components/CloseIcon.vue'
 import { store } from "../store/store"
-import { FocusTrap } from 'focus-trap-vue'
 import { computed, ref } from 'vue'
 
 const menuOpen = ref(false)
