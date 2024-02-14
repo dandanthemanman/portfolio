@@ -24,7 +24,7 @@ export default {
 
 <style lang="scss">
 #__nuxt {
-  // overflow: hidden;
+  overflow: hidden;
 }
 
 html{scroll-behavior:smooth}
