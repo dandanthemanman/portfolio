@@ -22,7 +22,7 @@ const toggleMenu = () => {
 
 const menuPosition = computed(() => {
     return {
-        "transform": menuOpen.value ? "translateX(-400px)" : ""
+        "transform": menuOpen.value ? "translateX(-100vw)" : ""
     }
 })
 
@@ -33,10 +33,11 @@ const menuPosition = computed(() => {
     position: absolute;
     left: 80px;
     height: 100vh;
+    margin-top: -2rem;
     width: 100vw;
     z-index: 10;
-    background-color: red;
-    transition: mobile-menu-slide 4s;
+    background-color: beige;
+    transition: transform ease 1s;
     .enter {
         animation-duration: 0.5s;
         animation-name: mobile-menu-slide;
