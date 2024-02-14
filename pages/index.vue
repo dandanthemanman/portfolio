@@ -8,7 +8,7 @@
 
         <div class="projects-container">
             <p ref="secondTypingAnimation" >
-                web developer at Bean.la
+                currently building at Bean.la
             </p>
             
         </div>
@@ -24,6 +24,7 @@
             <p @click="handleEmailClick">
                 {{ contactText }}</p>
         </div>
+        <WorkSection/>
     </div>
 </template>
 
@@ -82,6 +83,14 @@ export default {
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&family=Protest+Riot&display=swap');
 
+#work {
+    margin-top: 300px;
+    height: 200px;
+    width: 100vw;
+    border: 1px solid red;
+    scroll-behavior: smooth;  
+    margin-left: -8px;
+}
 .contact-container {
     z-index: 5;
     display: flex;

@@ -5,12 +5,15 @@
             <a class="little-name" href="/#intro">web developer</a>
         </div>
         <div class="items-container">
+            <BurgerMenu/>
         </div>
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue'
+import BurgerMenu from '@/components/BurgerMenu.vue'
+
 
 const emailText = ref("Email me")
 

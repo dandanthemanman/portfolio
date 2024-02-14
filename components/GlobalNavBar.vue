@@ -1,7 +1,6 @@
 <template>
     <div>
-        <MobileNavBar class="mobile"/>
-        <DesktopNavBar class="desktop"/>
+        <MobileNavBar />
     </div>
 </template>
 
@@ -10,6 +9,7 @@
 </script>
 <style lang="scss" scoped>
 * {
+    position: sticky;
     z-index: 10;
 }
 </style>
