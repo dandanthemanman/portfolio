@@ -87,7 +87,6 @@ export default {
     margin-top: 300px;
     height: 200px;
     width: 100vw;
-    border: 1px solid red;
     scroll-behavior: smooth;  
     margin-left: -8px;
 }
