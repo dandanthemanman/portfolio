@@ -1,5 +1,4 @@
 <template>
-<div id="background"></div>
 <div class="site">
   <GlobalNavBar class="global-nav-component"/>
   <NuxtPage/>
@@ -24,7 +23,7 @@ export default {
 
 <style lang="scss">
 #__nuxt {
-  overflow: hidden;
+  contain: paint;
 }
 
 html{scroll-behavior:smooth}
@@ -33,7 +32,10 @@ html, body {
   font-size: 62.5%;
     margin: 0px !important;
     width: 100%;
-  
+    background-image: url("./public/madrid_sunset.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 #background {
