@@ -2,7 +2,11 @@
         <button @click="handleToggle" class="accordion">{{ drawerContent.title }}</button>
             <div class="panel" :style="activeStyling">
             <p>{{ drawerContent.description }}</p>
-            <img v-for="image in drawerContent.images" :key="index" :src="image.url" alt="">
+            <div class="image-container" v-for="image in drawerContent.images" :key="index">
+                <p class="image-caption">{{ image.caption }}</p>
+                <img :src="image.url" alt="">
+            </div>
+            
             </div>
 </template>
 
@@ -72,8 +76,21 @@ export default {
   background-color: white;
   overflow: hidden;
 }
-img {
-    width: 90vw;
-    margin-bottom: 2rem;
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+        width: 100%;
+        margin-bottom: 2rem;
+}
+
+}
+p {
+    font-size: 1.4rem;
+    font-family: $libre-franklin;
+    .image-caption {
+        font-style: italic;
+    }
 }
 </style>

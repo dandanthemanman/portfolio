@@ -10,7 +10,6 @@
 
 <script>
 import workDrawers from "../assets/workDrawers"
-// workdrawers value never read
 export default {
     setup() {
         const accordionDrawers = ref(null)
