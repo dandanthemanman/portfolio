@@ -2,6 +2,7 @@
         <button @click="handleToggle" class="accordion">{{ drawerContent.title }}</button>
             <div class="panel" :style="activeStyling">
             <p>{{ drawerContent.description }}</p>
+            <img v-for="image in drawerContent.images" :key="index" :src="image.url" alt="">
             </div>
 </template>
 
@@ -36,7 +37,7 @@ export default {
     computed: {
         activeStyling() {
             return {
-                "max-height": this.activeDrawerIndex == this.$.vnode.key ? "100px" : "0px"
+                "max-height": this.activeDrawerIndex == this.$.vnode.key ? "" : "0px"
             }
         }
     }
@@ -69,5 +70,8 @@ export default {
   padding: 0 18px;
   background-color: white;
   overflow: hidden;
+}
+img {
+    width: 90vw;
 }
 </style>
