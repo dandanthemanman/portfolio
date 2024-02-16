@@ -1,4 +1,4 @@
-export default workProjects = [
+const workDrawers = [
     {
         title: "Dublab (Bean.la)",
         description: "lorem ipsum", 
@@ -10,14 +10,15 @@ export default workProjects = [
         title: "Jaja Tequila (Bean.la)",
         description: "lorem ipsum2", 
         images: [
-            { url: "/_nuxt/public/images/DublabPlayer.png" }
+            { url: "/_nuxt/public/images/JajaLandingPage.png" }
         ]
     },
     {
         title: "s94 Design (Bean.la)",
         description: "lorem ipsum3",
         images: [
-            { url: "/_nuxt/public/images/DublabPlayer.png" }
+            { url: "/_nuxt/public/images/s94Design.png" }
         ] 
     }
 ]
+export default workDrawers

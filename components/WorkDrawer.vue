@@ -67,11 +67,13 @@ export default {
 
 .panel {
     transition: max-height 0.25s ease;
+    transition: height 0.25s ease;
   padding: 0 18px;
   background-color: white;
   overflow: hidden;
 }
 img {
     width: 90vw;
+    margin-bottom: 2rem;
 }
 </style>

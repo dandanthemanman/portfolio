@@ -9,47 +9,30 @@
 </template>
 
 <script>
+import workDrawers from "../assets/workDrawers"
+// workdrawers value never read
 export default {
     setup() {
         const accordionDrawers = ref(null)
-        
-
         return {
-            accordionDrawers
+            accordionDrawers, 
         }
     },
     data() {
         return {
-            activeDrawerIndex: null, 
-            workDrawers: [
-                {
-                    title: "Dublab (Bean.la)",
-                    description: "lorem ipsum", 
-                    images: [
-                        { url: "/_nuxt/public/images/DublabPlayer.png" }
-                    ]
-                },
-                {
-                    title: "Jaja Tequila (Bean.la)",
-                    description: "lorem ipsum2", 
-                    images: [
-                        { url: "/_nuxt/public/images/JajaLandingPage.png" }
-                    ]
-                },
-                {
-                    title: "s94 Design (Bean.la)",
-                    description: "lorem ipsum3",
-                    images: [
-                        { url: "/_nuxt/public/images/s94Design.png" }
-                    ] 
-                }
-            ]
+            activeDrawerIndex: null,
+            workDrawers: workDrawers 
         }
     },
     methods: {
         setActiveDrawerIndex(index) {
             this.activeDrawerIndex =
             index === this.activeDrawerIndex ? null : index
+        }
+    }, 
+    computed: {
+        workDrawers() {
+            return this.workDrawers
         }
     }
 }
