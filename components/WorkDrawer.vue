@@ -1,42 +1,45 @@
 <template>
         <button @click="handleToggle" class="accordion">{{ drawerContent.title }}</button>
-            <div class="panel">
+            <div class="panel" :style="activeStyling">
             <p>{{ drawerContent.description }}</p>
-            <p>{{ `${activeDrawerIndex}` }}</p>
             </div>
 </template>
 
 <script>
 export default {
     props: {
-        activeDrawerIndex:  {
-            type: Number, 
+        activeDrawerIndex: {
+            type: Number,
             default: null
         },
         drawerContent: {
-            type: Object, 
+            type: Object,
             default: {}
-        }, 
+        },
         index: {
             type: Number,
             default: null
         }
     },
     emits: ['emitActiveDrawerIndex'],
-    setup () {
-        return {}
-    }, 
+    setup() {
+        return {
+
+        }
+    },
     methods: {
         handleToggle() {
             console.log(`${this.$.vnode.key}`);
             this.$emit('emitActiveDrawerIndex', this.$.vnode.key)
-    }
-    }, 
-    computed: {
-        isActive() {
-            return Boolean(activeDrawerIndex)
         }
-  }
+    },
+    computed: {
+        activeStyling() {
+            return {
+                "max-height": this.activeDrawerIndex == this.$.vnode.key ? "100px" : "0px"
+            }
+        }
+    }
 }
 </script>
 
@@ -56,14 +59,13 @@ export default {
   border-bottom: 1px solid white;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
 .accordion:hover {
     background-color: rgb(59, 108, 173);
     color: beige;
 }
 
-/* Style the accordion panel. Note: hidden by default */
 .panel {
+    transition: max-height 0.25s ease;
   padding: 0 18px;
   background-color: white;
   overflow: hidden;
