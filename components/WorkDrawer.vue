@@ -89,8 +89,8 @@ export default {
 p {
     font-size: 1.4rem;
     font-family: $libre-franklin;
-    .image-caption {
-        font-style: italic;
-    }
+}
+.image-caption {
+    margin-right: auto;
 }
 </style>
