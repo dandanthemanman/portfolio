@@ -51,9 +51,10 @@ export default {
 <style lang="scss" scoped>
 
 .accordion {
+    opacity: 0.9;
     font-size: 2rem;
     font-family: $dot-gothic;
-  color: #444;
+  color: black;
   cursor: pointer;
   padding: 18px;
   width: 100%;

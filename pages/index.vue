@@ -172,9 +172,11 @@ export default {
         #stack-container {
                 z-index: -1;
                 display: flex;
-                max-width: 100vw;
+                width: 100vw;
+                justify-content: center;
                 svg {
                     opacity: 0;
+                    max-width: 170px;
                 }
             }
     }

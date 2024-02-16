@@ -15,7 +15,7 @@ const workDrawers = [
     },
     {
         title: "s94 Design (Bean.la)",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        description: "Crafted for a high-end art gallery, this website elegantly merges a sophisticated CMS integration with bespoke front-end design. Expertise in CMS development, possibly utilizing platforms like WordPress or custom solutions, along with advanced front-end skills in HTML, CSS, and JavaScript, results in a seamless digital platform that mirrors the gallery's exclusivity and aesthetic refinement.",
         images: [
             { url: "/_nuxt/public/images/s94Design.png", caption: "Design landing page" }
         ] 
