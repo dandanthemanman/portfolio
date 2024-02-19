@@ -84,12 +84,13 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&family=Protest+Riot&display=swap');
 
 #work {
-    margin-top: 300px;
+    padding-top: 65px;
+    // margin-top: 150px;
     height: 200px;
     width: 100vw;
-    border: 1px solid red;
     scroll-behavior: smooth;  
     margin-left: -8px;
+        .anchor{display: block; position: relative; top: 250px; visibility: hidden;}
 }
 .contact-container {
     z-index: 5;
@@ -142,7 +143,7 @@ export default {
         flex-direction: column;
         .about-container {
             margin-right: auto;
-            padding: 1.4rem;
+            padding: 2.8rem 2.8rem 0;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -156,7 +157,7 @@ export default {
         }
         .projects-container {
             margin-left: auto;
-            padding: 1.4rem;
+            padding: 2.8rem 2.8rem 0;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -173,9 +174,11 @@ export default {
         #stack-container {
                 z-index: -1;
                 display: flex;
-                max-width: 100vw;
+                width: calc(100vw - 16px);
+                justify-content: center;
                 svg {
                     opacity: 0;
+                    max-width: 170px;
                 }
             }
     }
