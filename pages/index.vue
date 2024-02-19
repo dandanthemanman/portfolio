@@ -71,6 +71,17 @@ export default {
 
 
     },
+    methods: {
+        copyToClipboard(callback) {
+            navigator.clipboard.writeText('daniel.becker000@gmail.com').then(callback)
+        },
+        handleEmailClick() {
+            this.copyToClipboard(() => {
+            console.log('handle email click used')
+            this.contactText = 'email copied to clipboard ✓'
+            })
+        },
+    }
 }
 </script>
 
