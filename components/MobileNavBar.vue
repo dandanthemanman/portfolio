@@ -2,7 +2,7 @@
     <div class="nav-bar-container">
         <div class="name-container">
             <p class="big-name">Dan Becker</p>
-            <p class="little-name">web developer</p>
+            <p class="little-name">web development</p>
         </div>
         <div class="items-container">
             <BurgerMenu/>

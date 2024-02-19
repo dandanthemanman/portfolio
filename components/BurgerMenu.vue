@@ -46,6 +46,9 @@ const menuPosition = computed(() => {
 <style lang="scss" scoped>
 .mobile-menu {
     width: 100vw;
+    @media (min-width: $breakpoint-md) {
+        width: 50vw;
+  }
     padding: 1.8rem;
     display: flex;
     flex-direction: column;
@@ -89,11 +92,19 @@ const menuPosition = computed(() => {
         height: 40px;
         width: 40px;
         padding: 2rem;
+        @media (min-width: $breakpoint-md) {
+            width: 60px;
+            height: 60px;
+  }
     }
     .close-icon {
         height: 40px;
         width: 40px;
-        padding: 2rem;  
+        padding: 2rem; 
+        @media (min-width: $breakpoint-md) {
+            width: 60px;
+            height: 60px;
+  } 
     }
 
 </style>
