@@ -20,11 +20,14 @@
                 <SassIcon/>
                 <CssIcon/>
         </div>
-        <div class="contact-container" ref="contactContainer">
+        <!-- CONTACT RADIATING BUTTON (REMOVED 2/19/24) -->
+        <!-- <div class="contact-container" ref="contactContainer">
             <p @click="handleEmailClick">
                 {{ contactText }}</p>
-        </div>
-        <WorkSection/>
+        </div> -->
+        <div class="work-section" ref="worksContainer">
+            <WorkSection />
+        </div>  
     </div>
 </template>
 
@@ -38,13 +41,15 @@ export default {
         const stackIcons = ref([]);
         const contactContainer = ref(null)
         const contactText = ref("Contact")
+        const worksContainer = ref(null)
         return {
             firstTypingAnimation,
             secondTypingAnimation,
             fadeInAnimation,
             stackIcons,
             contactContainer,
-            contactText
+            contactText, 
+            worksContainer
         }
     },
     mounted() {
@@ -60,7 +65,7 @@ export default {
                 icon.style.animationDelay = `${index * 0.5}s`
             })
             this.stackIcons[this.stackIcons.length - 1].addEventListener('animationend', () => {
-                this.contactContainer.style.opacity = '1'
+                this.worksContainer.style.opacity = '1'
             })
         })
 
@@ -83,15 +88,18 @@ export default {
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&family=Protest+Riot&display=swap');
 
-#work {
-    padding-top: 65px;
-    // margin-top: 150px;
-    height: 200px;
-    width: 100vw;
-    scroll-behavior: smooth;  
-    margin-left: -8px;
-        .anchor{display: block; position: relative; top: 250px; visibility: hidden;}
+.work-section {
+    transition: opacity, 2s;
+    opacity: 0;
+        #work {
+        height: 200px;
+        width: 100vw;
+        scroll-behavior: smooth;  
+        margin-left: -8px;
+            .anchor{display: block; position: relative; top: 250px; visibility: hidden;}
 }
+}
+
 .contact-container {
     z-index: 5;
     display: flex;
@@ -135,8 +143,6 @@ export default {
     opacity: 0;
   }
 }
-
-
     .about-projects-container {
         scroll-snap-align: start;
         display: flex;
@@ -176,6 +182,7 @@ export default {
                 display: flex;
                 width: calc(100vw - 16px);
                 justify-content: center;
+                margin-bottom: -55px;
                 svg {
                     opacity: 0;
                     max-width: 170px;
