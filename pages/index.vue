@@ -62,7 +62,7 @@ export default {
         this.secondTypingAnimation.addEventListener('animationend', () => {
             this.stackIcons.forEach((icon, index) => {
                 icon.classList.add('fade-in-animation');
-                icon.style.animationDelay = `${index * 0.5}s`
+                icon.style.animationDelay = `${index * 0.3}s`
             })
             this.stackIcons[this.stackIcons.length - 1].addEventListener('animationend', () => {
                 this.worksContainer.style.opacity = '1'
@@ -190,7 +190,7 @@ export default {
             }
     }
     .fade-in-animation {
-        animation: fadeIn 0.5s ease forwards;
+        animation: fadeIn 0.3s ease forwards;
     }
     @keyframes fadeIn {
         0% {
