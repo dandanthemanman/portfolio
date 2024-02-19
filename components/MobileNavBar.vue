@@ -54,11 +54,17 @@ const handleEmailClick = () => {
             margin: unset;
             color: white;
             font-size: 4.5rem;
+            @media (min-width: $breakpoint-md) {
+                font-size: 6rem;
+            }
         }
         .little-name {
             margin: unset;
             color: white;
             font-size: 2rem;
+            @media (min-width: $breakpoint-md) {
+                font-size: 3.5rem;
+            }
      }
     }
     .items-container{

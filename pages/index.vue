@@ -111,10 +111,13 @@ export default {
     position: relative;
     opacity: 0;
     transition: opacity, 2s;
-    a {
-        text-decoration: none;
-        color: cornsilk;
-        font-size: 1.6rem;
+    @media (min-width: $breakpoint-md) {
+                margin-top: 90px;
+            }
+    p {
+        @media (min-width: $breakpoint-md) {
+                font-size: 2rem;
+            }
     }
 }
 .contact-container::before {
@@ -159,6 +162,9 @@ export default {
                 padding: 1rem;
                 background-color: greenyellow;
                 font-family: $libre-franklin;
+                @media (min-width: $breakpoint-md) {
+                font-size: 2rem;
+            }
             }
             
         }
@@ -175,6 +181,9 @@ export default {
                 background-color: greenyellow;
                 font-family: $libre-franklin;
                 opacity: 0;
+                @media (min-width: $breakpoint-md) {
+                font-size: 2rem;
+            }
             }
             
         }
@@ -187,7 +196,7 @@ export default {
                 margin-top: -50px;
                 svg {
                     opacity: 0;
-                    max-width: 170px;
+                    max-width: 100px;
                 }
             }
     }
