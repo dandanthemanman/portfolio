@@ -1,26 +1,38 @@
 <template>
-    <div @click="toggleMenu" style="position: relative; height: 100px">
+    <div style="position: relative; height: 100px">
          <aside class="mobile-menu" :style="menuPosition">
-            <CloseIcon class="close-icon" />
-            <a href="#work">Work</a>
+            <CloseIcon @click="toggleMenu" class="close-icon" />
             <a href="https://github.com/dandanthemanman" target="_blank">github</a>
             <a href="https://www.linkedin.com/in/dan-becker-2abb01107/" target="_blank">linkedIn</a>
-            <a href="">copy of my resume (PDF)</a>
+            <a href="">Resume (PDF)</a>
+            <p @click="handleEmailClick" >{{ contactText }}</p>
+
         </aside>
-        <MenuIcon class="menu-icon"/>
+        <MenuIcon class="menu-icon" @click="toggleMenu"/>
     </div>
 </template>
 
 <script setup>
 import MenuIcon from '@/components/MenuIcon.vue'
 import CloseIcon from '@/components/CloseIcon.vue'
-import { store } from "../store/store"
 import { computed, ref } from 'vue'
 
 const menuOpen = ref(false)
+const contactText = ref("Contact")
 
 const toggleMenu = () => {
     menuOpen.value = !menuOpen.value
+}
+
+const copyToClipboard = (callback) => {
+            navigator.clipboard.writeText('daniel.becker000@gmail.com').then(callback)
+        }
+
+const handleEmailClick = () => {
+    copyToClipboard(() => {
+            console.log('handle email click used')
+            contactText.value = 'email copied to clipboard ✓'
+            })
 }
 
 const menuPosition = computed(() => {
@@ -44,11 +56,12 @@ const menuPosition = computed(() => {
     z-index: 10;
     background-color: rgb(59, 108, 173);
     transition: transform ease 0.5s;
-    a {
+    a, p {
         text-decoration: none;
         color: white;
         font-size: 2.5rem;
         padding: 20px;
+        margin: unset;
     }
     .enter {
         animation-duration: 0.5s;

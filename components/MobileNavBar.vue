@@ -1,8 +1,8 @@
 <template>
     <div class="nav-bar-container">
         <div class="name-container">
-            <a class="big-name" href="/#about">Dan Becker</a>
-            <a class="little-name" href="/#about">web developer</a>
+            <p class="big-name">Dan Becker</p>
+            <p class="little-name">web developer</p>
         </div>
         <div class="items-container">
             <BurgerMenu/>
@@ -51,18 +51,14 @@ const handleEmailClick = () => {
         flex-direction: column;
        margin: 2rem;
         .big-name{
+            margin: unset;
             color: white;
             font-size: 4.5rem;
-            &:hover {
-            color: greenyellow;
-        }
         }
         .little-name {
+            margin: unset;
             color: white;
             font-size: 2rem;
-            &:hover {
-            color: greenyellow;
-        }
      }
     }
     .items-container{

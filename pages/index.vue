@@ -20,13 +20,12 @@
                 <SassIcon/>
                 <CssIcon/>
         </div>
-        <!-- CONTACT RADIATING BUTTON (REMOVED 2/19/24) -->
-        <!-- <div class="contact-container" ref="contactContainer">
-            <p @click="handleEmailClick">
-                {{ contactText }}</p>
-        </div> -->
         <div class="work-section" ref="worksContainer">
             <WorkSection />
+        </div>
+            <div class="contact-container" ref="contactContainer">
+            <p @click="handleEmailClick">
+                {{ contactText }}</p>
         </div>  
     </div>
 </template>
@@ -65,23 +64,13 @@ export default {
                 icon.style.animationDelay = `${index * 0.3}s`
             })
             this.stackIcons[this.stackIcons.length - 1].addEventListener('animationend', () => {
-                this.worksContainer.style.opacity = '1'
+                this.worksContainer.style.opacity = '1';
+                this.contactContainer.style.opacity = '1'
             })
         })
 
 
     },
-    methods: {
-        copyToClipboard(callback) {
-            navigator.clipboard.writeText('daniel.becker000@gmail.com').then(callback)
-        },
-        handleEmailClick() {
-            this.copyToClipboard(() => {
-            console.log('handle email click used')
-            this.contactText = 'email copied to clipboard ✓'
-            })
-        },
-    }
 }
 </script>
 
@@ -101,6 +90,7 @@ export default {
 }
 
 .contact-container {
+    margin-top: 35px;
     z-index: 5;
     display: flex;
     justify-content: center;
@@ -183,6 +173,7 @@ export default {
                 width: calc(100vw - 16px);
                 justify-content: center;
                 margin-bottom: -55px;
+                margin-top: -50px;
                 svg {
                     opacity: 0;
                     max-width: 170px;
