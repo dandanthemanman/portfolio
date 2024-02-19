@@ -94,12 +94,9 @@ export default {
     position: relative;
     transition: opacity, 2s;
     opacity: 0;
-        #work {
-        height: 200px;
-        width: 100vw;
-        scroll-behavior: smooth;  
-        margin-left: -8px;
-}
+    margin-left: -8px;
+    width: 100vw;
+
 }
 .contact-container {
 position: relative;
