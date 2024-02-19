@@ -79,7 +79,6 @@ export default {
     },
     handleEmailClick() {
       this.copyToClipboard(() => {
-        console.log("handle email click used");
         this.contactText = "email copied to clipboard ✓";
       });
     },
@@ -90,7 +89,20 @@ export default {
 <style lang="scss" scoped>
 @import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300&family=Protest+Riot&display=swap");
 
+
+.work-section {
+    position: relative;
+    transition: opacity, 2s;
+    opacity: 0;
+        #work {
+        height: 200px;
+        width: 100vw;
+        scroll-behavior: smooth;  
+        margin-left: -8px;
+}
+}
 .contact-container {
+position: relative;
   margin-top: 35px;
   z-index: 5;
   display: flex;
@@ -192,6 +204,12 @@ export default {
       opacity: 0;
       max-width: 100px;
     }
+  }
+}
+@keyframes pulse {
+  to {
+    transform: scale(2);
+    opacity: 0;
   }
 }
 .fade-in-animation {
