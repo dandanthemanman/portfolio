@@ -30,14 +30,23 @@ const copyToClipboard = (callback) => {
 
 const handleEmailClick = () => {
     copyToClipboard(() => {
-            console.log('handle email click used')
+        console.log('handle email click used')
+            console.log(desktop)
             contactText.value = 'email copied to clipboard ✓'
             })
 }
 
 const menuPosition = computed(() => {
+    // different animation for mobile/desktop
+    const desktop = Boolean(window.innerWidth > 768)
+    if (!desktop){
     return {
         "transform": menuOpen.value ? "translateX(-100vw)" : "translateX(8px)"
+        }
+    } else {
+        return {
+            "transform": menuOpen.value ? "translateX(-50vw)" : "translateX(21px)"
+        }
     }
 })
 
@@ -48,6 +57,7 @@ const menuPosition = computed(() => {
     width: 100vw;
     @media (min-width: $breakpoint-md) {
         width: 50vw;
+        margin-top: -47px;
   }
     padding: 1.8rem;
     display: flex;
