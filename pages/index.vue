@@ -116,7 +116,7 @@ export default {
             }
     p {
         @media (min-width: $breakpoint-md) {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
     }
 }
