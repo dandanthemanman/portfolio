@@ -14,11 +14,13 @@
 <script setup>
 import MenuIcon from '@/components/MenuIcon.vue'
 import CloseIcon from '@/components/CloseIcon.vue'
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { store } from "../store/store"
 
 const menuOpen = ref(false)
 const contactText = ref("Contact")
+const openTransform = ref("")
+const closeTransform = ref("translateX(21px)")
 
 const toggleMenu = () => {
     store.blurSiteToggle()
@@ -37,19 +39,32 @@ const handleEmailClick = () => {
             })
 }
 
-const menuPosition = computed(() => {
-    // different animation for mobile/desktop
-    const desktop = Boolean(window.innerWidth > 768)
-    if (!desktop){
-    return {
-        "transform": menuOpen.value ? "translateX(-100vw)" : "translateX(8px)"
-        }
+onMounted(() => {
+    var desktop = Boolean(window.innerWidth > 768) 
+    if (!desktop) {
+         openTransform.value = "translateX(-100vw)"
+         closeTransform.value = "translateX(8px)"
     } else {
-        return {
-            "transform": menuOpen.value ? "translateX(-50vw)" : "translateX(21px)"
-        }
+        openTransform.value = "translateX(-50vw)"
+        closeTransform.value = "translateX(21px)"
     }
 })
+
+
+const menuPosition = computed(() => {
+    if (menuOpen.value) {
+        console.log("transform", openTransform)
+        return {
+            "transform" : openTransform.value
+        }
+    } else {
+        console.log("transform", closeTransform)
+        return {
+            "transform" : closeTransform.value
+        }
+    }
+    }
+)
 
 </script>
 
