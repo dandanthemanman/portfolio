@@ -153,6 +153,7 @@ position: relative;
   }
 }
 .about-projects-container {
+  box-shadow: inset 0px 1px red;
   scroll-snap-align: start;
   display: flex;
   flex-direction: column;

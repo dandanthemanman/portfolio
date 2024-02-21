@@ -1,9 +1,13 @@
 import { reactive } from 'vue'
 
 export const store = reactive({
+    siteBlur: false,
     burgerMenuOpen: false, 
     toggle() {
         this.burgerMenuOpen = !this.burgerMenuOpen
-        console.log('store.toggle')
-    } 
+    },
+    blurSiteToggle() {
+        this.siteBlur = !this.siteBlur
+        console.log('blurSiteToggle')
+    }
 })

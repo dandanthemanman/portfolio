@@ -1,13 +1,19 @@
 <template>
 <div class="site">
   <GlobalNavBar class="global-nav-component"/>
-  <NuxtPage/>
-  <GlobalFooter/>
+  <NuxtPage :style="blurStyling"/>
+  <GlobalFooter :style="blurStyling"/>
   </div>
 </template>
 
 <script>
+import { store } from "../store/store"
 export default {
+  data() {
+    return {
+      store
+    }
+  },
   mounted() {
     this.setVhVariable();
   }, 
@@ -15,6 +21,13 @@ export default {
     setVhVariable() {
       let vh = window.innerHeight * 0.01;
       document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+  }, 
+  computed: {
+    blurStyling() {
+      return {
+        "filter": store.siteBlur ? "blur(4px)" : ""
+      }
     }
   }
 }

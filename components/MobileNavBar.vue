@@ -1,6 +1,6 @@
 <template>
-    <div class="nav-bar-container">
-        <div class="name-container">
+    <div class="nav-bar-container"  >
+        <div class="name-container" :style="blurStyling">
             <p class="big-name">Dan Becker</p>
             <p class="little-name">web development</p>
         </div>
@@ -11,8 +11,15 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { store } from "../store/store"
+import { ref, computed } from 'vue'
 import BurgerMenu from '@/components/BurgerMenu.vue'
+
+const blurStyling = computed(() => {
+    return {
+        "filter": store.siteBlur ? "blur(4px)" : ""
+    }
+})
 
 
 const emailText = ref("Email me")
@@ -32,7 +39,6 @@ const handleEmailClick = () => {
 
 <style lang="scss" scoped>
 .nav-bar-container{ 
-    border-bottom: 1px solid red;
     backdrop-filter: blur(3px);
     font-family: $dot-gothic;
     display: flex;

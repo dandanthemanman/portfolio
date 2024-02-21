@@ -1,12 +1,11 @@
 <template>
     <div style="position: relative; height: 100px">
-         <aside class="mobile-menu" :style="menuPosition">
+        <aside class="mobile-menu" :style="menuPosition">
             <CloseIcon @click="toggleMenu" class="close-icon" />
             <a href="https://github.com/dandanthemanman" target="_blank">github</a>
             <a href="https://www.linkedin.com/in/dan-becker-2abb01107/" target="_blank">linkedIn</a>
             <a href="">Resume (PDF)</a>
             <p @click="handleEmailClick" >{{ contactText }}</p>
-
         </aside>
         <MenuIcon class="menu-icon" @click="toggleMenu"/>
     </div>
@@ -16,12 +15,14 @@
 import MenuIcon from '@/components/MenuIcon.vue'
 import CloseIcon from '@/components/CloseIcon.vue'
 import { computed, ref } from 'vue'
+import { store } from "../store/store"
 
 const menuOpen = ref(false)
 const contactText = ref("Contact")
 
 const toggleMenu = () => {
-    menuOpen.value = !menuOpen.value
+    store.blurSiteToggle()
+    menuOpen.value = !menuOpen.value;
 }
 
 const copyToClipboard = (callback) => {
@@ -55,6 +56,7 @@ const menuPosition = computed(() => {
 <style lang="scss" scoped>
 .mobile-menu {
     width: 100vw;
+    filter: blur(0px) !important;
     @media (min-width: $breakpoint-md) {
         width: 50vw;
         margin-top: -47px;
