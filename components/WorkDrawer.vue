@@ -63,6 +63,9 @@ export default {
   outline: none;
   transition: 0.4s;
   border-bottom: 1px solid white;
+  @media (min-width: $breakpoint-md) {
+                font-size: 2.5rem;
+            }
 }
 
 .accordion:hover {
@@ -76,6 +79,11 @@ export default {
   padding: 0 18px;
   background-color: white;
   overflow: hidden;
+  p {
+    @media (min-width: $breakpoint-md) {
+                font-size: 2rem;
+            }
+  }
 }
 .image-container {
     display: flex;

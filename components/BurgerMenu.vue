@@ -1,39 +1,81 @@
 <template>
-    <div @click="toggleMenu" style="position: relative; height: 100px">
-         <aside class="mobile-menu" :style="menuPosition">
-            <CloseIcon class="close-icon" />
-            <a href="#work">Work</a>
+    <div style="position: relative; height: 100px">
+        <aside class="mobile-menu" :style="menuPosition">
+            <CloseIcon @click="toggleMenu" class="close-icon" />
             <a href="https://github.com/dandanthemanman" target="_blank">github</a>
             <a href="https://www.linkedin.com/in/dan-becker-2abb01107/" target="_blank">linkedIn</a>
-            <a href="">copy of my resume (PDF)</a>
+            <a href="">Resume (PDF)</a>
+            <p @click="handleEmailClick" >{{ contactText }}</p>
         </aside>
-        <MenuIcon class="menu-icon"/>
+        <MenuIcon class="menu-icon" @click="toggleMenu"/>
     </div>
 </template>
 
 <script setup>
 import MenuIcon from '@/components/MenuIcon.vue'
 import CloseIcon from '@/components/CloseIcon.vue'
+import { computed, ref, onMounted } from 'vue'
 import { store } from "../store/store"
-import { computed, ref } from 'vue'
 
 const menuOpen = ref(false)
+const contactText = ref("Contact")
+const openTransform = ref("")
+const closeTransform = ref("translateX(21px)")
 
 const toggleMenu = () => {
-    menuOpen.value = !menuOpen.value
+    store.blurSiteToggle()
+    menuOpen.value = !menuOpen.value;
 }
 
-const menuPosition = computed(() => {
-    return {
-        "transform": menuOpen.value ? "translateX(-100vw)" : "translateX(8px)"
+const copyToClipboard = (callback) => {
+            navigator.clipboard.writeText('daniel.becker000@gmail.com').then(callback)
+        }
+
+const handleEmailClick = () => {
+    copyToClipboard(() => {
+        console.log('handle email click used')
+            console.log(desktop)
+            contactText.value = 'email copied to clipboard ✓'
+            })
+}
+
+onMounted(() => {
+    var desktop = Boolean(window.innerWidth > 768) 
+    if (!desktop) {
+         openTransform.value = "translateX(-100vw)"
+         closeTransform.value = "translateX(8px)"
+    } else {
+        openTransform.value = "translateX(-50vw)"
+        closeTransform.value = "translateX(21px)"
     }
 })
+
+
+const menuPosition = computed(() => {
+    if (menuOpen.value) {
+        console.log("transform", openTransform)
+        return {
+            "transform" : openTransform.value
+        }
+    } else {
+        console.log("transform", closeTransform)
+        return {
+            "transform" : closeTransform.value
+        }
+    }
+    }
+)
 
 </script>
 
 <style lang="scss" scoped>
 .mobile-menu {
     width: 100vw;
+    filter: blur(0px) !important;
+    @media (min-width: $breakpoint-md) {
+        width: 50vw;
+        margin-top: -47px;
+  }
     padding: 1.8rem;
     display: flex;
     flex-direction: column;
@@ -44,11 +86,12 @@ const menuPosition = computed(() => {
     z-index: 10;
     background-color: rgb(59, 108, 173);
     transition: transform ease 0.5s;
-    a {
+    a, p {
         text-decoration: none;
         color: white;
         font-size: 2.5rem;
         padding: 20px;
+        margin: unset;
     }
     .enter {
         animation-duration: 0.5s;
@@ -76,11 +119,19 @@ const menuPosition = computed(() => {
         height: 40px;
         width: 40px;
         padding: 2rem;
+        @media (min-width: $breakpoint-md) {
+            width: 60px;
+            height: 60px;
+  }
     }
     .close-icon {
         height: 40px;
         width: 40px;
-        padding: 2rem;  
+        padding: 2rem; 
+        @media (min-width: $breakpoint-md) {
+            width: 60px;
+            height: 60px;
+  } 
     }
 
 </style>
