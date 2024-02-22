@@ -3,7 +3,6 @@ const workDrawers = [
         title: "Dublab (Bean.la)",
         description: "Designed for Dublab radio, this audio player seamlessly integrates with the platform, allowing users to enjoy archived shows effortlessly. Developed with expertise in HTML, CSS, and JavaScript for smooth client-side interactions and enhanced user experience, it offers a user-friendly interface for accessing and listening to curated collections of past broadcasts.", 
         images: [
-            // this url is not being recognized by netlify
             { url: '/DublabPlayer.jpg', caption: "" }
         ]
     },
