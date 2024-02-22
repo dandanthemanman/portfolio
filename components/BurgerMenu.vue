@@ -4,7 +4,7 @@
             <CloseIcon @click="toggleMenu" class="close-icon" />
             <a href="https://github.com/dandanthemanman" target="_blank">github</a>
             <a href="https://www.linkedin.com/in/dan-becker-2abb01107/" target="_blank">linkedIn</a>
-            <a href="">Resume (PDF)</a>
+            <!-- <a href="">Resume (PDF)</a> -->
             <p @click="handleEmailClick" >{{ contactText }}</p>
         </aside>
         <MenuIcon class="menu-icon" @click="toggleMenu"/>
@@ -80,7 +80,7 @@ const menuPosition = computed(() => {
     position: absolute;
     left: 80px;
     height: 100vh;
-    margin-top: -2rem;
+    margin-top: -3rem;
     z-index: 10;
     background-color: rgb(59, 108, 173);
     transition: transform ease 0.5s;
