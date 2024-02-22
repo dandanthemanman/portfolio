@@ -75,6 +75,7 @@ html, body {
     top: 0px; 
     margin-left: -8px;
     margin-right: -8px;
+    box-shadow: 0 -1px inset red;
 }
 
 .site-content {
