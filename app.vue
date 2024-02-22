@@ -50,18 +50,6 @@ html, body {
     background-attachment: fixed;
     background-size: cover;
 }
-
-#background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-image: url("./public/madrid_sunset.jpg");
-  background-size: cover;
-  z-index: -1;
-}
-
 .site {
   display: flex;
   min-height: calc(var(--vh, 1vh) * 100);
