@@ -33,8 +33,6 @@ const copyToClipboard = (callback) => {
 
 const handleEmailClick = () => {
     copyToClipboard(() => {
-        console.log('handle email click used')
-            console.log(desktop)
             contactText.value = 'email copied to clipboard ✓'
             })
 }
