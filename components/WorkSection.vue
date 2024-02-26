@@ -1,5 +1,6 @@
 <template>
     <div ref="accordionDrawers" id="work" class="work-section-container">
+        <h1 class="title">Work:</h1>
         <WorkDrawer v-for="(workDrawer, index) in workDrawers"
         :key="index"
         :drawerContent = "workDrawer"
@@ -40,6 +41,15 @@ export default {
 <style lang="scss" scoped>
 *{
     z-index: 5;
+}
+.title {
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    font-family: $dot-gothic;
+    @media (min-width: $breakpoint-md) {
+        font-size: 3.5rem
+    } 
 }
 
 </style>
