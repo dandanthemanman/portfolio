@@ -1,21 +1,21 @@
 const workDrawers = [
     {
         title: "Dublab (Bean.la)",
-        description: "Designed for Dublab radio, this audio player allows users to enjoy a continuous stream of archived shows. Using CSS, and JavaScript for smooth client-side interactions and enhanced user experience, it offers a user-friendly interface for accessing and listening to curated collections of past broadcasts.", 
+        description: "Tasked with building custom audio player to support continous playback of archived radio shows on Dublab's radio website. Responsible for translating the client-provided design into an engaging UI using DRY code and SASS styling. Adapted to the site's already-established code architecture to find the most efficient way to support the player's functionality and ensure code maintanability.", 
         images: [
             { url: '/DublabPlayer.jpg', caption: "" }
         ]
     },
     {
         title: "Jaja Tequila (Bean.la)",
-        description: "Jaja Tequila's website combines elegant design with essential business functionalities, using HTML, CSS, JavaScript for client-side interactions. A fully custom-built CMS gives the client near total control over the site's content to update it's look at will. This project showcases a blend of aesthetic appeal and functionality to promote strong brand identity in an ecommerce shop.", 
+        description: "Responsible for co-leading the rebuild of this site, starting with the design and build of a new custom CMS for the client from the ground-up. Later, collaborated in a small team to design the new site architecture and create it using efficient DRY standards. Used SASS to bring the site to life and accurately reflect the brand's identity. To finish, integrated Google Analytics to support the client's marketing team", 
         images: [
             { url: '/JajaLandingPage.jpg', caption: "" }
         ]
     },
     {
         title: "s94 Design (Bean.la)",
-        description: "Crafted for a celebrated art gallery, this website elegantly merges a sophisticated CMS integration with bespoke front-end design. Advanced front-end skills in HTML, CSS, and JavaScript are used to elegantly present the contents of an extensive CMS catalogue of artworks. THe final product is a digital platform that mirrors the gallery's identity within the art community.",
+        description: "Worked in a small team to upgrade site to Vue 3 and rebuild CMS for more client control of website layout. Responsible for building components from figma using DRY standards and maintanable and easy-to-read SASS styling.",
         images: [
             { url: '/s94Design.jpg', caption: "" }
         ] 
